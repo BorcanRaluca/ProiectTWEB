@@ -11,7 +11,8 @@ export default function FeedbackPage(){
     const { id } = useParams()
     const addSmiley = (e) => {
         axios.post(`http://localhost:8080/activitate/${id}/feedback`, {
-            emoticon: "smileyFace"
+            emoticon: "smileyFace",
+            data: new Date()
           })
           .then(() => {
             // setOpen(false);
@@ -22,7 +23,8 @@ export default function FeedbackPage(){
 
     const addSurprised = (e) => {
         axios.post(`http://localhost:8080/activitate/${id}/feedback`, {
-            emoticon: "surprisedFace"
+            emoticon: "surprisedFace",
+            data: new Date()
           })
           .then(() => {
             // setOpen(false);
@@ -33,7 +35,8 @@ export default function FeedbackPage(){
 
     const addFrowny = (e) => {
         axios.post(`http://localhost:8080/activitate/${id}/feedback`, {
-            emoticon: "frownyFace"
+            emoticon: "frownyFace",
+            data: new Date()
           })
           .then(() => {
             // setOpen(false);
@@ -44,7 +47,8 @@ export default function FeedbackPage(){
 
     const addConfused = (e) => {
         axios.post(`http://localhost:8080/activitate/${id}/feedback`, {
-            emoticon: "confusedFace"
+            emoticon: "confusedFace",
+            data: new Date()
           })
           .then(() => {
             // setOpen(false);

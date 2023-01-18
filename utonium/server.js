@@ -25,7 +25,8 @@ const Activitate = sequelize.define('activitate',{
 })
 
 const Feedback = sequelize.define('feedback',{
-    emoticon:Sequelize.ENUM('smileyFace', 'frownyFace', 'surprisedFace', 'confusedFace')
+    emoticon:Sequelize.ENUM('smileyFace', 'frownyFace', 'surprisedFace', 'confusedFace'),
+	data: Sequelize.DATE
 })
 
 Profesor.hasMany(Activitate)

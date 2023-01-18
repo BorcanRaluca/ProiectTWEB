@@ -22,7 +22,7 @@ export default function VizualizareFeedback(props){
             <div className="vizualizareFeedback">
                 <h1>Feedback-ul activitatii este:</h1>
                 {
-                    feedbackuri.map((e) => <Feedback key={e.id} emoticon={e.emoticon}/>)
+                    feedbackuri.map((e) => <Feedback key={e.id} emoticon={e.emoticon} data={e.data}/>)
                 }
             </div>
         )

@@ -7,6 +7,7 @@ export default function Feedback(props){
             <ul>
             <li className="table-row">
                 <div className="col-1" >{props.emoticon}</div>
+                <div className="col-3" >{props.data}</div>
             </li>
             </ul>
         </div>
