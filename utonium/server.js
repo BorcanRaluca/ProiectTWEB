@@ -1,5 +1,6 @@
 const express = require('express')
 const Sequelize = require('sequelize')
+const cors = require('cors')
 
 const sequelize = new Sequelize('utoniumdb', 'root', '',{
     // storage:'database.db',
@@ -31,6 +32,7 @@ Profesor.hasMany(Activitate)
 Activitate.hasMany(Feedback)
 
 const app = express()
+app.use(cors())
 app.use(express.json())
 
 sequelize.sync()
@@ -117,21 +119,6 @@ app.get('/profesor/:pid', async (req, res) => {
 	}
 })
 
-app.get('/activitate/:aid', async (req, res) => {
-	try {
-		const activitate = await Activitate.findByPk(req.params.aid, {
-			include: Feedback
-		})
-		if (activitate) {
-			res.status(200).json(activitate)
-		} else {
-			res.status(404).json({ message: 'not found'})
-		}
-	} catch (err) {
-		console.warn(err)
-		res.status(500).json({ message: 'some error occured' })
-	}
-})
 
 app.get('/profesor/:pid/activitate', async (req, res) => {
 	try {
@@ -197,5 +184,43 @@ app.post('/activitate/:aid/feedback', async (req, res) => {
 	}
 })
 
+app.get('/activitate/:cod', async (req, res) => {
+	try {
+		const activitate = await Activitate.findOne({ where: {
+			cod: req.params.cod
+		}}, {
+			include: Feedback
+		})
+		if (activitate) {
+			res.status(200).json(activitate)
+		} else {
+			res.status(404).json({ message: 'not found'})
+		}
+	} catch (err) {
+		console.warn(err)
+		res.status(500).json({ message: 'some error occured' })
+	}
+})
 
-app.listen(8080)
+app.get('/profesor/:name/:password', async (req, res) => {
+	try {
+		const profesor = await Profesor.findOne({ where: {
+			name: req.params.name,
+			password: req.params.password
+		}}, {
+			include: Activitate
+		})
+		if (profesor) {
+			res.status(200).json(profesor)
+		} else {
+			res.status(404).json({ message: 'not found'})
+		}
+	} catch (err) {
+		console.warn(err)
+		res.status(500).json({ message: 'some error occured' })
+	}
+})
+
+
+  app.listen(8080)
+

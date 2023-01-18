@@ -13,7 +13,7 @@ Platforma este bazată pe o aplicație web cu arhitectură de tip Single Page Ap
 - Ca student pot introduce un cod pentru a participa la o activitate definită. Codul este valabil pentru durata activității  
 - Ca student care a accesat o activitate am acces la o interfața împarțită în 4 cadrane fiecare cu un emoticon (smiley face, frowny face, surprised face, confused face). În orice moment pot apăsa un emoticon pentru a reacționa la activate. Ca student pot să adaug oricâte instanțe de feedback.  
 - Ca profesor pot vede feedback-ul continuu cu momentele de timp asociate. Feedback-ul este anonim. Feedback-ul este accesibil atât în timpul activității cât și ulterior  
-  
+
 # Organizare proiect (succint):  
 - BAZA DE DATE: 4 tabele (Activitate, Student, Profesor, Feedback), realizata in SqLite(?)
 - FRONTEND: realizata in React.js, va fi implementata aplicatia de tip Single Page Application conform cerintelor
